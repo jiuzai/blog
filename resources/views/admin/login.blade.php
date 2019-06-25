@@ -10,8 +10,12 @@
 		<h1>Blog</h1>
 		<h2>欢迎使用博客管理平台</h2>
 		<div class="form">
+		@if(session('msg'))
+			<p style="color:red">{{session('msg')}}</p>
+		@endif
 			<p style="color:red">用户名错误</p>
 			<form action="#" method="post">
+				{{csrf_field()}}
 				<ul>
 					<li>
 					<input type="text" name="username" class="text"/>
@@ -24,14 +28,14 @@
 					<li>
 						<input type="text" class="code" name="code"/>
 						<span><i class="fa fa-check-square-o"></i></span>
-						<img src="#" alt="">
+					<img src="{{url('admin/code')}}" alt="" onclick="this.src='{{url('admin/code')}}?'+Math.random()">
 					</li>
 					<li>
 						<input type="submit" value="立即登陆"/>
 					</li>
 				</ul>
 			</form>
-			<p><a href="#">返回首页</a> &copy; 2016 Powered by <a href="http://www.chenhua.club" target="_blank">http://www.chenhua.club</a></p>
+			<p><a href="#">返回首页</a> &copy; 2019 Powered by <a href="http://www.chenhua.club" target="_blank">广东轻院</a></p>
 		</div>
 	</div>
 </body>
