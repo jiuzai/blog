@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="style/css/ch-ui.admin.css">
-	<link rel="stylesheet" href="style/font/css/font-awesome.min.css">
-	<script type="text/javascript" src="style/js/jquery.js"></script>
-    <script type="text/javascript" src="style/js/ch-ui.admin.js"></script>
-</head>
+@extends('layouts.admin')
+@section('content')
 <body>
 	<!--头部 开始-->
 	<div class="top_box">
@@ -19,9 +12,9 @@
 		</div>
 		<div class="top_right">
 			<ul>
-				<li>管理员：admin</li>
-				<li><a href="pass.html" target="main">修改密码</a></li>
-				<li><a href="#">退出</a></li>
+				<li>{{session('user.name')}}</li>
+				<li><a href="{{url('admin/pass')}}" target="main">修改密码</a></li>
+				<li><a href="{{url('admin/logout')}}">退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -61,14 +54,14 @@
 
 	<!--主体部分 开始-->
 	<div class="main_box">
-		<iframe src="info.html" frameborder="0" width="100%" height="100%" name="main"></iframe> 
+		<iframe src="{{url('admin/info')}}" frameborder="0" width="100%" height="100%" name="main"></iframe> 
 	</div>
 	<!--主体部分 结束-->
 
 	<!--底部 开始-->
 	<div class="bottom_box">
-		CopyRight © 2016. Powered By <a href="http://www.chenhua.club">http://www.chenhua.club</a>.
+		CopyRight © 2019. Powered By <a href="http://www.chenhua.club">广东轻院</a>.
 	</div>
 	<!--底部 结束-->
 </body>
-</html>
+@endsection

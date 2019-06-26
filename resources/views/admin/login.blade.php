@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="{{asset('resources/views/admin/style/css/ch-ui.admin.css')}}">
-	<link rel="stylesheet" href="{{asset('resources/views/admin/style/css/ch-ui.admin.css')}}">
+	<link rel="stylesheet" href="{{asset('resources/views/admin/style/font/css/font-awesome.min.css')}}">
 </head>
 <body style="background:#F3F3F4;">
 	<div class="login_box">
@@ -13,7 +13,6 @@
 		@if(session('msg'))
 			<p style="color:red">{{session('msg')}}</p>
 		@endif
-			<p style="color:red">用户名错误</p>
 			<form action="#" method="post">
 				{{csrf_field()}}
 				<ul>

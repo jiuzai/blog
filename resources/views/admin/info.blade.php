@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="style/css/ch-ui.admin.css">
-	<link rel="stylesheet" href="style/font/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{asset('resources/views/admin/style/css/ch-ui.admin.css')}}">
+	<link rel="stylesheet" href="{{asset('resources/views/admin/style/font/css/font-awesome.min.css')}}">
 </head>
 <body>
 	<!--面包屑导航 开始-->
@@ -36,10 +36,10 @@
         <div class="result_content">
             <ul>
                 <li>
-                    <label>操作系统</label><span>WINNT</span>
+                    <label>操作系统</label><span>{{PHP_OS}}</span>
                 </li>
                 <li>
-                    <label>运行环境</label><span>Apache/2.2.21 (Win64) PHP/5.3.10</span>
+                    <label>运行环境</label><span>{{$_SERVER['SERVER_SOFTWARE']}}</span>
                 </li>
                 <li>
                     <label>PHP运行方式</label><span>apache2handler</span>
@@ -48,10 +48,10 @@
                     <label>静静设计-版本</label><span>v-0.1</span>
                 </li>
                 <li>
-                    <label>上传附件限制</label><span>2M</span>
+                    <label>上传附件限制</label><span><?PHP echo get_cfg_var('upload_max_filesize') ?></span>
                 </li>
                 <li>
-                    <label>北京时间</label><span>2014年3月18日 21:08:24</span>
+                    <label>北京时间</label><span><?php echo date('Y年m月d日H时i分s秒') ?></span>
                 </li>
                 <li>
                     <label>服务器域名/IP</label><span>localhost [ 127.0.0.1 ]</span>

@@ -15,16 +15,24 @@ class LoginController extends CommController
 {
     public function login(){
         if($input = Input::all()){
-            //检查验证码
             $code = new \Code;
             $_code = $code->get();
+            $user = User::where('name', $input['username'])->get();
+            $isAuth = false;
+            foreach($user as $one){
+                if(Crypt::decrypt($one->pw)==$input['password']){
+                    $isAuth = true;
+                    session(['user'=>$one]);
+                }
+            }
+            if(!$isAuth){
+                return back()->with('msg', '用户名或密码错误');
+            }
+            //检查验证码
             if(strtoupper($input['code'])!=$_code){
                 return back()->with('msg', '验证码错误');
             }
-            //检查用户名、密码
-            $user = User::where('name', $input['username'])->get();
-            dd($user);
-            echo $input['username'];
+            return redirect('admin/index');
         }else{
             return view('admin.login');
         }
@@ -32,5 +40,9 @@ class LoginController extends CommController
     public function code(){
         $code = new \Code;
         $code->make();
+    }
+    public function logout(){
+        session(['user'=>null]);
+        return redirect('admin/login');
     }
 }
