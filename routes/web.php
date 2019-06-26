@@ -25,5 +25,6 @@ Route::group(['middleware' => ['web','admin.login'], 'namespace' => 'Admin', 'pr
     Route::get('info', 'IndexController@info');
     Route::get('logout', 'LoginController@logout');
     Route::any('pass', 'IndexController@pass');
-});
 
+    Route::resource('category', 'CategoryController');
+});
