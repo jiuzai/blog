@@ -27,4 +27,6 @@ Route::group(['middleware' => ['web','admin.login'], 'namespace' => 'Admin', 'pr
     Route::any('pass', 'IndexController@pass');
 
     Route::resource('category', 'CategoryController');
+    Route::post('cate/changeorder', 'CategoryController@changeOrder');
+
 });
